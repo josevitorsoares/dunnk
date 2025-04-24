@@ -18,12 +18,32 @@ const envSchema = z.object({
   API_PORT: z.coerce.number().default(3333),
   BALLDONTLIE_SDK_KEY: z.string(),
   CRON_EXPRESSION: z.string(),
+  TWITTER_APP_KEY: z.string(),
+  TWITTER_APP_SECRET: z.string(),
+  TWITTER_ACCESS_TOKEN: z.string(),
+  TWITTER_ACCESS_SECRET: z.string(),
 });
 
 const env = envSchema.parse(process.env, {
   errorMap: () => ({ message: "Environment variable not found" }),
 });
 
-const { API_PORT, BALLDONTLIE_SDK_KEY, CRON_EXPRESSION } = env;
+const {
+  API_PORT,
+  BALLDONTLIE_SDK_KEY,
+  CRON_EXPRESSION,
+  TWITTER_ACCESS_TOKEN,
+  TWITTER_ACCESS_SECRET,
+  TWITTER_APP_KEY,
+  TWITTER_APP_SECRET,
+} = env;
 
-export { API_PORT, BALLDONTLIE_SDK_KEY, CRON_EXPRESSION };
+export {
+  API_PORT,
+  BALLDONTLIE_SDK_KEY,
+  CRON_EXPRESSION,
+  TWITTER_ACCESS_SECRET,
+  TWITTER_ACCESS_TOKEN,
+  TWITTER_APP_KEY,
+  TWITTER_APP_SECRET,
+};
